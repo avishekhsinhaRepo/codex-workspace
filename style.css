@@ -1,19 +1,46 @@
 /* Custom styles */
 :root {
     --primary-color: #dc3545;
+    --bg-color: #ffffff;
+    --text-color: #212529;
+    --muted-color: #6c757d;
+    --section-light-bg: #f8f9fa;
+    --card-bg: #ffffff;
+    --card-text: #212529;
+    --offcanvas-bg: #ffffff;
+    --offcanvas-text: #212529;
+    --input-bg: #ffffff;
+    --input-text: #212529;
+    --input-border: #ced4da;
+    --footer-bg: #212529;
+    --footer-text: #ffffff;
 }
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .hero-section {
     padding: 60px 0;
 }
 
+#about,
+.hero-section {
+    background-color: var(--section-light-bg) !important;
+}
+
+.text-muted {
+    color: var(--muted-color) !important;
+}
+
 .card {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     border: none;
+    background-color: var(--card-bg);
+    color: var(--card-text);
 }
 
 .card:hover {
@@ -59,6 +86,11 @@ body {
 }
 
 /* Offcanvas cart styling */
+.offcanvas {
+    background-color: var(--offcanvas-bg);
+    color: var(--offcanvas-text);
+}
+
 .offcanvas-body {
     display: flex;
     flex-direction: column;
@@ -69,12 +101,58 @@ body {
     overflow-y: auto;
 }
 
+.modal-content,
+.form-control,
+.form-select {
+    background-color: var(--input-bg);
+    color: var(--input-text);
+}
+
+.form-control,
+.form-select {
+    border-color: var(--input-border);
+}
+
+.form-control::placeholder {
+    color: var(--muted-color);
+}
+
+footer {
+    background-color: var(--footer-bg) !important;
+    color: var(--footer-text);
+}
+
+[data-theme="dark"] {
+    --bg-color: #121212;
+    --text-color: #f1f3f5;
+    --muted-color: #adb5bd;
+    --section-light-bg: #1e1e1e;
+    --card-bg: #242424;
+    --card-text: #f8f9fa;
+    --offcanvas-bg: #1f1f1f;
+    --offcanvas-text: #f8f9fa;
+    --input-bg: #2a2a2a;
+    --input-text: #f8f9fa;
+    --input-border: #495057;
+    --footer-bg: #111111;
+    --footer-text: #f8f9fa;
+}
+
+[data-theme="dark"] .navbar {
+    background-color: #b02a37 !important;
+}
+
+[data-theme="dark"] .btn-outline-secondary {
+    color: #dee2e6;
+    border-color: #6c757d;
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .hero-section h1 {
         font-size: 2rem;
     }
-    
+
     .hero-section .lead {
         font-size: 1rem;
     }

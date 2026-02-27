@@ -2,7 +2,57 @@
 let cart = [];
 
 // Add to cart functionality
+
+function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+
+    const toggleButton = document.getElementById('theme-toggle');
+    const toggleText = document.getElementById('theme-toggle-text');
+
+    if (!toggleButton || !toggleText) {
+        return;
+    }
+
+    if (theme === 'dark') {
+        toggleButton.innerHTML = '<i class="bi bi-sun-fill"></i> <span id="theme-toggle-text">Light Mode</span>';
+    } else {
+        toggleButton.innerHTML = '<i class="bi bi-moon-stars-fill"></i> <span id="theme-toggle-text">Dark Mode</span>';
+    }
+}
+
+function initializeThemeToggle() {
+    let savedTheme = 'light';
+
+    try {
+        savedTheme = localStorage.getItem('theme') || 'light';
+    } catch (error) {
+        savedTheme = 'light';
+    }
+
+    applyTheme(savedTheme);
+
+    const themeToggle = document.getElementById('theme-toggle');
+    if (!themeToggle) {
+        return;
+    }
+
+    themeToggle.addEventListener('click', function() {
+        const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+        const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+        applyTheme(nextTheme);
+
+        try {
+            localStorage.setItem('theme', nextTheme);
+        } catch (error) {
+            // Ignore storage errors so theme toggle still works without persistence.
+        }
+    });
+}
+
 document.addEventListener('DOMContentLoaded', function() {
+    initializeThemeToggle();
+
     // Add to cart buttons
     const addToCartButtons = document.querySelectorAll('.add-to-cart');
     addToCartButtons.forEach(button => {
