@@ -35,6 +35,9 @@
                         <a class="nav-link" href="#about">About</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="#contactModal" data-bs-toggle="modal">Contact Us</a>
+                    </li>
+                    <li class="nav-item">
                         <button class="btn btn-outline-light position-relative" data-bs-toggle="offcanvas" data-bs-target="#cartOffcanvas">
                             <i class="bi bi-cart3"></i> Cart
                             <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning text-dark" id="cart-badge">
@@ -311,6 +314,42 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                     <button type="button" class="btn btn-danger" id="place-order">Place Order</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Modal -->
+    <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-danger text-white">
+                    <h5 class="modal-title" id="contactModalLabel">Contact Us</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="contact-form">
+                        <div class="mb-3">
+                            <label for="contact-name" class="form-label">Full Name</label>
+                            <input id="contact-name" type="text" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="contact-email" class="form-label">Email</label>
+                            <input id="contact-email" type="email" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="contact-subject" class="form-label">Subject</label>
+                            <input id="contact-subject" type="text" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="contact-message" class="form-label">Message</label>
+                            <textarea id="contact-message" class="form-control" rows="4" required></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-danger" id="submit-contact">Send Message</button>
                 </div>
             </div>
         </div>

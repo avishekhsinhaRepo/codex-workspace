@@ -100,6 +100,22 @@ document.addEventListener('DOMContentLoaded', function() {
             form.reportValidity();
         }
     });
+
+    // Contact form submit
+    document.getElementById('submit-contact').addEventListener('click', function() {
+        const form = document.getElementById('contact-form');
+        if (form.checkValidity()) {
+            alert('Thanks for contacting us! We will get back to you shortly.');
+
+            form.reset();
+            const modal = bootstrap.Modal.getInstance(document.getElementById('contactModal'));
+            if (modal) {
+                modal.hide();
+            }
+        } else {
+            form.reportValidity();
+        }
+    });
 });
 
 function addToCart(id, name, price) {
