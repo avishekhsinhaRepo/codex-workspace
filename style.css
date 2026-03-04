@@ -53,6 +53,26 @@ body {
     object-fit: cover;
 }
 
+#impact-stats {
+    background-color: var(--bg-color);
+}
+
+.stats-card {
+    background-color: var(--card-bg);
+    border: 1px solid rgba(220, 53, 69, 0.15);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.stats-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+}
+
+[data-theme="dark"] .stats-card {
+    border-color: rgba(255, 255, 255, 0.12);
+}
+
+
 .filter-btn {
     transition: all 0.3s ease;
 }
