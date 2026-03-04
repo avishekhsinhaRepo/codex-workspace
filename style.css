@@ -227,3 +227,19 @@ html {
 [data-theme="dark"] .download-app-banner {
     background: linear-gradient(135deg, #9f1d2b, #b45309);
 }
+
+#related-video {
+    background-color: var(--bg-color);
+}
+
+.video-card {
+    border-radius: 1rem;
+}
+
+.video-card iframe {
+    border: 0;
+}
+
+[data-theme="dark"] .video-card {
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
