@@ -21,7 +21,14 @@ function applyTheme(theme) {
 }
 
 function initializeThemeToggle() {
-    const savedTheme = localStorage.getItem('theme') || 'light';
+    let savedTheme = 'light';
+
+    try {
+        savedTheme = localStorage.getItem('theme') || 'light';
+    } catch (error) {
+        savedTheme = 'light';
+    }
+
     applyTheme(savedTheme);
 
     const themeToggle = document.getElementById('theme-toggle');
@@ -34,7 +41,12 @@ function initializeThemeToggle() {
         const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
 
         applyTheme(nextTheme);
-        localStorage.setItem('theme', nextTheme);
+
+        try {
+            localStorage.setItem('theme', nextTheme);
+        } catch (error) {
+            // Ignore storage errors so theme toggle still works without persistence.
+        }
     });
 }
 
