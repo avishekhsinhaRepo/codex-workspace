@@ -186,3 +186,24 @@ html {
 .position-relative .badge {
     font-size: 0.7rem;
 }
+
+#download-app {
+    background: linear-gradient(135deg, rgba(220, 53, 69, 0.1), rgba(13, 110, 253, 0.08));
+}
+
+.download-app-banner {
+    background: linear-gradient(135deg, #dc3545, #fd7e14);
+    color: #ffffff;
+}
+
+.download-app-banner p {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+[data-theme="dark"] #download-app {
+    background: linear-gradient(135deg, rgba(220, 53, 69, 0.18), rgba(13, 110, 253, 0.16));
+}
+
+[data-theme="dark"] .download-app-banner {
+    background: linear-gradient(135deg, #9f1d2b, #b45309);
+}
