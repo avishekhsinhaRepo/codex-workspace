@@ -1,3 +1,86 @@
+function initializeChatbot() {
+    const chatbotToggle = document.getElementById('chatbot-toggle');
+    const chatbotPanel = document.getElementById('chatbot-panel');
+    const chatbotClose = document.getElementById('chatbot-close');
+    const chatbotForm = document.getElementById('chatbot-form');
+    const chatbotInput = document.getElementById('chatbot-input');
+
+    if (!chatbotToggle || !chatbotPanel || !chatbotClose || !chatbotForm || !chatbotInput) {
+        return;
+    }
+
+    chatbotToggle.addEventListener('click', function() {
+        const isHidden = chatbotPanel.classList.contains('d-none');
+        chatbotPanel.classList.toggle('d-none');
+        chatbotToggle.setAttribute('aria-expanded', String(isHidden));
+
+        if (isHidden) {
+            chatbotInput.focus();
+        }
+    });
+
+    chatbotClose.addEventListener('click', function() {
+        chatbotPanel.classList.add('d-none');
+        chatbotToggle.setAttribute('aria-expanded', 'false');
+    });
+
+    chatbotForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const message = chatbotInput.value.trim();
+        if (!message) {
+            return;
+        }
+
+        addChatMessage(message, 'user');
+        chatbotInput.value = '';
+
+        const botResponse = getChatbotResponse(message);
+        setTimeout(() => {
+            addChatMessage(botResponse, 'bot');
+        }, 350);
+    });
+}
+
+function addChatMessage(text, sender) {
+    const chatbotMessages = document.getElementById('chatbot-messages');
+    if (!chatbotMessages) {
+        return;
+    }
+
+    const message = document.createElement('div');
+    message.className = `chatbot-message ${sender === 'user' ? 'chatbot-message-user' : 'chatbot-message-bot'}`;
+    message.textContent = text;
+    chatbotMessages.appendChild(message);
+    chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+}
+
+function getChatbotResponse(input) {
+    const normalizedInput = input.toLowerCase();
+
+    if (normalizedInput.includes('delivery') || normalizedInput.includes('time')) {
+        return 'Our average delivery time is about 30 minutes depending on your location and order volume.';
+    }
+
+    if (normalizedInput.includes('payment') || normalizedInput.includes('pay')) {
+        return 'We accept Cash on Delivery, Credit Card, and PayPal at checkout.';
+    }
+
+    if (normalizedInput.includes('recommend') || normalizedInput.includes('popular')) {
+        return 'Our customer favorites are Margherita Pizza, Classic Beef Burger, and Chocolate Brownie.';
+    }
+
+    if (normalizedInput.includes('hello') || normalizedInput.includes('hi')) {
+        return 'Hello! Need help choosing something tasty today?';
+    }
+
+    if (normalizedInput.includes('cart') || normalizedInput.includes('order')) {
+        return 'You can add items from the menu and review everything from the Cart button in the top-right corner.';
+    }
+
+    return 'I can help with menu picks, payment methods, and delivery details. Ask me anything food-related!';
+}
+
 // Cart functionality
 let cart = [];
 
@@ -52,6 +135,7 @@ function initializeThemeToggle() {
 
 document.addEventListener('DOMContentLoaded', function() {
     initializeThemeToggle();
+    initializeChatbot();
 
     // Add to cart buttons
     const addToCartButtons = document.querySelectorAll('.add-to-cart');

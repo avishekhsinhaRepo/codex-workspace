@@ -497,6 +497,34 @@
         </div>
     </section>
 
+    <!-- Chatbot -->
+    <div class="chatbot-widget" aria-live="polite">
+        <button id="chatbot-toggle" class="btn btn-danger rounded-circle shadow" aria-label="Open chat assistant" aria-expanded="false">
+            <i class="bi bi-chat-dots-fill"></i>
+        </button>
+        <div id="chatbot-panel" class="chatbot-panel d-none" role="dialog" aria-label="FoodExpress assistant chat">
+            <div class="chatbot-header">
+                <div>
+                    <h5 class="mb-0">FoodExpress Assistant</h5>
+                    <small>Ask about menu, orders, or delivery</small>
+                </div>
+                <button id="chatbot-close" class="btn btn-sm btn-light" aria-label="Close chat assistant">
+                    <i class="bi bi-x-lg"></i>
+                </button>
+            </div>
+            <div id="chatbot-messages" class="chatbot-messages">
+                <div class="chatbot-message chatbot-message-bot">
+                    Hi there! 👋 I can help with menu recommendations, delivery time, and payment options.
+                </div>
+            </div>
+            <form id="chatbot-form" class="chatbot-input-area">
+                <label for="chatbot-input" class="visually-hidden">Type a message</label>
+                <input id="chatbot-input" type="text" class="form-control" placeholder="Ask me anything..." maxlength="160" required>
+                <button type="submit" class="btn btn-danger">Send</button>
+            </form>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer class="bg-dark text-white py-4 mt-5">
         <div class="container text-center">
