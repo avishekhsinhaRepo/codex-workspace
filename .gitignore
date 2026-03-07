@@ -41,6 +41,9 @@ logs/
 .env.local
 .env.*.local
 
+# npm authentication (contains private registry token)
+#.npmrc
+
 # Build output (if any in future)
 dist/
 build/

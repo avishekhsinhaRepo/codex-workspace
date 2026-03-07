@@ -27,6 +27,44 @@ body {
     padding: 60px 0;
 }
 
+.hero-carousel .carousel-inner {
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.hero-carousel .carousel-item img {
+    height: 420px;
+    object-fit: cover;
+}
+
+.hero-carousel .carousel-control-prev,
+.hero-carousel .carousel-control-next {
+    width: 12%;
+}
+
+.hero-carousel .carousel-control-prev-icon,
+.hero-carousel .carousel-control-next-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background-size: 55% 55%;
+    background-color: rgba(0, 0, 0, 0.45);
+}
+
+.hero-carousel .carousel-indicators [data-bs-target] {
+    width: 0.65rem;
+    height: 0.65rem;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.85);
+    background-color: rgba(255, 255, 255, 0.45);
+    margin: 0 0.35rem;
+}
+
+.hero-carousel .carousel-indicators .active {
+    background-color: #ffffff;
+}
+
 #about,
 .hero-section {
     background-color: var(--section-light-bg) !important;
@@ -181,6 +219,16 @@ footer {
     background-color: #b02a37 !important;
 }
 
+[data-theme="dark"] .hero-carousel .carousel-control-prev-icon,
+[data-theme="dark"] .hero-carousel .carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0.65);
+}
+
+[data-theme="dark"] .hero-carousel .carousel-indicators [data-bs-target] {
+    border-color: rgba(255, 255, 255, 0.95);
+    background-color: rgba(255, 255, 255, 0.55);
+}
+
 [data-theme="dark"] .btn-outline-secondary {
     color: #dee2e6;
     border-color: #6c757d;
@@ -194,6 +242,10 @@ footer {
 
     .hero-section .lead {
         font-size: 1rem;
+    }
+
+    .hero-carousel .carousel-item img {
+        height: 280px;
     }
 }
 
